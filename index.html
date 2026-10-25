@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vishal Jakhar – AI &amp; Data Science Portfolio</title>
+<meta name="description" content="Vishal Jakhar, B.Tech CSE (AI &amp; Data Science) student from Jaipur. Machine learning and data analysis projects, skills and contact.">
+<meta property="og:title" content="Vishal Jakhar – AI &amp; Data Science Portfolio">
+<meta property="og:description" content="Machine learning and data analysis projects by Vishal Jakhar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📈%3C/text%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=Figtree:wght@400;500;600&display=swap');
+:root{
+  --bg:#0B1F2A; --surface:#12303F; --surface2:#17394B; --ink:#E8F1F2; --muted:#9DB5BF; --line:#24485B;
+  --accent:#FFB84D; --accent-ink:#0B1F2A; --data:#5EEAD4;
+  --head:'Familjen Grotesk','Segoe UI',Arial,sans-serif; --body:'Figtree','Segoe UI',Arial,sans-serif;
+}
+:root[data-theme="light"]{
+  --bg:#F2F7F8; --surface:#FFFFFF; --surface2:#E6EFF1; --ink:#0B1F2A; --muted:#4B6572; --line:#CCDCE1;
+  --accent:#B86E00; --accent-ink:#FFFFFF; --data:#0F766E;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{background:var(--bg);color:var(--ink);font:400 1.05rem/1.7 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--head);letter-spacing:-.02em;line-height:1.08}
+
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:3.8rem}
+.logo{font:700 1.25rem var(--head);text-decoration:none}
+.logo i{font-style:normal;color:var(--accent)}
+nav ul{display:flex;gap:1.3rem;list-style:none;padding:0;align-items:center}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:.3rem .85rem;font:500 .85rem var(--body);cursor:pointer}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;padding:clamp(3rem,8vw,6rem) 0}
+.status{display:inline-flex;gap:.6rem;align-items:center;font-size:.95rem;color:var(--muted);margin-bottom:1.4rem}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--data);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 .45rem color-mix(in srgb,var(--data) 20%,transparent)}}
+.hero h1{font-size:clamp(2.8rem,7.5vw,5.4rem);font-weight:700}
+.hero h1 span{display:block;color:var(--accent)}
+.hero .lead{margin-top:1.4rem;font-size:1.2rem;color:var(--muted);max-width:32rem}
+.hero .lead b{color:var(--ink);font-weight:600}
+.cta{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.75rem 1.4rem;border-radius:.6rem;font-weight:600;text-decoration:none;border:1.5px solid var(--line);color:var(--ink);background:none;font-family:var(--body);font-size:1rem;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-2px);transition:transform .15s}
+.plot{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:.8rem}
+.plot canvas{display:block;width:100%;height:20rem;cursor:crosshair;touch-action:manipulation}
+.plot p{font-size:.88rem;color:var(--muted);padding:.5rem .4rem 0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.plot button{background:none;border:0;color:var(--accent);font:600 .88rem var(--body);cursor:pointer;padding:0}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:1rem;overflow:hidden}
+.stats div{background:var(--surface);padding:1.3rem 1.4rem}
+.stats b{display:block;font:700 2.1rem var(--head);color:var(--accent)}
+.stats span{color:var(--muted);font-size:.92rem}
+
+section{padding:5rem 0 0}
+h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.6rem}
+.sub{color:var(--muted);max-width:36rem;margin-bottom:2.2rem}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.5rem;display:flex;flex-direction:column;gap:.9rem}
+.card h3{font-size:1.4rem}
+.card .tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{font-size:.82rem;padding:.15rem .6rem;border-radius:999px;background:var(--surface2);color:var(--data);font-weight:500}
+.card dl{display:grid;gap:.6rem;font-size:.97rem}
+.card dt{font-weight:600;color:var(--ink)}
+.card dd{color:var(--muted)}
+.card .res{border-left:3px solid var(--accent);padding-left:.8rem}
+.card .links{margin-top:auto;display:flex;gap:1rem;font-weight:600;font-size:.95rem}
+.card .links a{color:var(--accent)}
+
+.skillgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.4rem 1.5rem}
+.group h3{font-size:1.2rem;margin-bottom:1rem}
+.bar{margin-bottom:.8rem}
+.bar div{display:flex;justify-content:space-between;font-size:.95rem;font-weight:500}
+.bar div em{font-style:normal;color:var(--muted)}
+.bar i{display:block;height:.4rem;background:var(--surface2);border-radius:99px;margin-top:.3rem;overflow:hidden}
+.bar i::after{content:"";display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--data),var(--accent));border-radius:99px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.timeline{list-style:none;padding:0 0 0 1.4rem;border-left:2px solid var(--line);display:grid;gap:1.6rem}
+.timeline li{position:relative}
+.timeline li::before{content:"";position:absolute;left:-1.95rem;top:.5rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent)}
+.timeline b{font-family:var(--head);font-size:1.15rem;display:block}
+.timeline span{color:var(--muted);font-size:.95rem}
+.plain{list-style:none;padding:0;display:grid;gap:1rem}
+.plain li{background:var(--surface);border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.2rem}
+.plain b{display:block}
+.plain span{color:var(--muted);font-size:.95rem}
+h3.s{font-size:1.5rem;margin-bottom:1.4rem}
+
+.about{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start}
+.avatar{width:12rem;height:12rem;border-radius:1.4rem;background:linear-gradient(135deg,var(--data),var(--accent));display:grid;place-items:center;font:700 3rem var(--head);color:var(--accent-ink);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.about p+p{margin-top:1rem}
+.about p{max-width:42rem}
+.focus{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.focus span{border:1px solid var(--line);border-radius:.5rem;padding:.3rem .8rem;font-size:.95rem}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding-bottom:5rem}
+.contact .mail{font:700 clamp(1.3rem,3vw,1.9rem) var(--head);text-decoration:none;border-bottom:3px solid var(--accent);word-break:break-all}
+.socials{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1.6rem}
+.socials a{font-weight:600;color:var(--muted)}
+.socials a:hover{color:var(--accent)}
+.contact ul{list-style:none;padding:0;margin-top:1.6rem;color:var(--muted)}
+form{display:grid;gap:.9rem;background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.5rem}
+label{font-weight:600;font-size:.95rem;display:grid;gap:.3rem}
+input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:.5rem;padding:.65rem .8rem;width:100%}
+textarea{min-height:7rem;resize:vertical}
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero,.two,.contact{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .skillgrid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr}
+}
+@media (max-width:640px){nav ul li:not(:last-child){display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="logo" href="#top">Vishal<i>.</i>J</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <div class="status"><span class="dot"></span> Open to internships and collaborations</div>
+      <h1>Vishal Jakhar<span>AI &amp; Data Science</span></h1>
+      <p class="lead">I’m a <b>B.Tech CSE student in Jaipur</b> who turns raw data into models, dashboards and tools that answer real questions.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="resume.pdf" download>Download resume</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="plot">
+      <canvas id="plot" aria-label="Interactive scatter plot with a regression line that refits as you add points" role="img"></canvas>
+      <p><span>Click or tap to add a data point. The model refits.</span><button type="button" id="reset">Reset</button></p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div><b>3+</b><span>ML and data projects</span></div>
+      <div><b>X.X</b><span>CGPA (add yours)</span></div>
+      <div><b>5+</b><span>Courses and certificates</span></div>
+      <div><b>Python</b><span>Main language</span></div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="sub">Each project shows the problem, how I solved it, and what I got.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>House Price Predictor</h3>
+          <div class="tags"><span>Python</span><span>scikit-learn</span><span>Flask</span></div>
+          <dl>
+            <dt>Problem</dt><dd>Buyers find it hard to know a fair price for a house.</dd>
+            <dt>Approach</dt><dd>Cleaned the dataset, engineered features and compared Linear Regression, Random Forest and XGBoost.</dd>
+            <dt>Result</dt><dd class="res">Best model reached R² of 0.XX. Added a web form to get instant predictions.</dd>
+          </dl>
+          <div class="links"><a href="https://github.com/your-username/house-price-predictor">Code</a><a href="#">Live demo</a></div>
+        </article>
+        <article class="card">
+          <h3>Sales Data Dashboard</h3>
+          <div class="tags"><span>Pandas</span><span>SQL</span><span>Matplotlib</span></div>
+          <dl>
+            <dt>Problem</dt><dd>Raw sales files were hard to read and hid trends.</dd>
+            <dt>Approach</dt><dd>Loaded data with SQL, analysed it with Pandas and built charts for monthly growth and top products.</dd>
+            <dt>Result</dt><dd class="res">Found the best-selling categories and the months with the biggest drops.</dd>
+          </dl>
+          <div class="links"><a href="https://github.com/your-username/sales-dashboard">Code</a><a href="#">Live demo</a></div>
+        </article>
+        <article class="card">
+          <h3>Review Sentiment Analyzer</h3>
+          <div class="tags"><span>NLP</span><span>TensorFlow</span><span>Python</span></div>
+          <dl>
+            <dt>Problem</dt><dd>Reading thousands of product reviews by hand takes too long.</dd>
+            <dt>Approach</dt><dd>Cleaned the text, trained a neural network and tested it on unseen reviews.</dd>
+            <dt>Result</dt><dd class="res">Reached XX% accuracy in labelling reviews as positive, negative or neutral.</dd>
+          </dl>
+          <div class="links"><a href="https://github.com/your-username/sentiment-analyzer">Code</a><a href="#">Live demo</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="sub">The tools I use most, and how comfortable I am with each.</p>
+      <div class="skillgrid">
+        <div class="group"><h3>Programming</h3>
+          <div class="bar"><div>Python <em>Advanced</em></div><i style="--w:88%"></i></div>
+          <div class="bar"><div>SQL <em>Good</em></div><i style="--w:75%"></i></div>
+          <div class="bar"><div>C / C++ <em>Good</em></div><i style="--w:70%"></i></div>
+          <div class="bar"><div>HTML &amp; CSS <em>Good</em></div><i style="--w:70%"></i></div>
+        </div>
+        <div class="group"><h3>Data science</h3>
+          <div class="bar"><div>Pandas and NumPy <em>Advanced</em></div><i style="--w:85%"></i></div>
+          <div class="bar"><div>Data visualisation <em>Good</em></div><i style="--w:78%"></i></div>
+          <div class="bar"><div>Statistics <em>Good</em></div><i style="--w:72%"></i></div>
+          <div class="bar"><div>Power BI / Excel <em>Learning</em></div><i style="--w:55%"></i></div>
+        </div>
+        <div class="group"><h3>Machine learning and AI</h3>
+          <div class="bar"><div>scikit-learn <em>Good</em></div><i style="--w:80%"></i></div>
+          <div class="bar"><div>TensorFlow / Keras <em>Learning</em></div><i style="--w:62%"></i></div>
+          <div class="bar"><div>NLP <em>Learning</em></div><i style="--w:58%"></i></div>
+          <div class="bar"><div>Computer vision <em>Beginner</em></div><i style="--w:40%"></i></div>
+        </div>
+        <div class="group"><h3>Tools</h3>
+          <div class="bar"><div>Git and GitHub <em>Good</em></div><i style="--w:80%"></i></div>
+          <div class="bar"><div>Jupyter and Colab <em>Advanced</em></div><i style="--w:88%"></i></div>
+          <div class="bar"><div>VS Code <em>Advanced</em></div><i style="--w:85%"></i></div>
+          <div class="bar"><div>Flask <em>Learning</em></div><i style="--w:60%"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap two">
+      <div>
+        <h3 class="s">Education</h3>
+        <ul class="timeline">
+          <li><b>B.Tech, CSE (AI &amp; Data Science)</b><span>Your College, Jaipur · 20XX – 20XX<br>CGPA: X.X</span></li>
+          <li><b>Class XII</b><span>Your School · 20XX · XX%</span></li>
+          <li><b>Class X</b><span>Your School · 20XX · XX%</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="s">Certificates and achievements</h3>
+        <ul class="plain">
+          <li><b>Machine Learning Specialisation</b><span>Coursera · 20XX</span></li>
+          <li><b>Python for Data Science</b><span>Your platform · 20XX</span></li>
+          <li><b>Hackathon or competition</b><span>Name, result and year</span></li>
+          <li><b>Club or leadership role</b><span>Role and what you did</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="avatar"><img src="photo.jpg" alt="Vishal Jakhar" onerror="this.remove()">VJ</div>
+      <div>
+        <h2>About me</h2>
+        <p>I’m Vishal Jakhar, a B.Tech student in Computer Science Engineering with a specialisation in Artificial Intelligence and Data Science, based in Jaipur, Rajasthan.</p>
+        <p>I like finding the story inside data. I enjoy cleaning messy datasets, testing different models, and explaining the results in a way anyone can follow. I learn best by building, so most of what I know comes from projects.</p>
+        <p>I’m looking for an internship where I can work on machine learning or data analysis and grow with a team.</p>
+        <div class="focus"><span>Machine learning</span><span>Data analysis</span><span>NLP</span><span>Storytelling with data</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2>Let’s talk</h2>
+        <p class="sub">Have an internship, project or question? Send a message and I’ll reply within two days.</p>
+        <a class="mail" href="mailto:you@example.com">you@example.com</a>
+        <ul><li>Phone: +91 XXXXX XXXXX</li><li>Location: Jaipur, Rajasthan, India</li></ul>
+        <div class="socials">
+          <a href="https://github.com/your-username">GitHub</a>
+          <a href="https://linkedin.com/in/your-username">LinkedIn</a>
+          <a href="https://kaggle.com/your-username">Kaggle</a>
+          <a href="https://instagram.com/your-username">Instagram</a>
+        </div>
+      </div>
+      <form id="form">
+        <label>Your name<input name="n" required autocomplete="name"></label>
+        <label>Your email<input name="e" type="email" required autocomplete="email"></label>
+        <label>Message<textarea name="m" required></textarea></label>
+        <button class="btn primary" type="submit">Send by email</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© <span id="year"></span> Vishal Jakhar</span><span>Made in Jaipur</span></div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Theme */
+(function(){
+  var root=document.documentElement;
+  try{var t=localStorage.getItem('theme');if(t)root.dataset.theme=t;}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    root.dataset.theme=root.dataset.theme==='light'?'dark':'light';
+    try{localStorage.setItem('theme',root.dataset.theme);}catch(e){}
+    draw();
+  });
+})();
+
+/* Contact form opens the visitor's email app */
+document.getElementById('form').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var f=ev.target;
+  location.href='mailto:you@example.com?subject='+encodeURIComponent('Portfolio message from '+f.n.value)+
+    '&body='+encodeURIComponent(f.m.value+'\n\n'+f.n.value+'\n'+f.e.value);
+});
+
+/* Hero: scatter plot with a live regression line */
+var cv=document.getElementById('plot'),ctx=cv.getContext('2d'),pts=[],W=0,H=0;
+function seed(){
+  pts=[];
+  for(var i=0;i<28;i++){var x=.06+Math.random()*.88;pts.push({x:x,y:.18+.62*x+(Math.random()-.5)*.26});}
+}
+function size(){
+  var r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1;
+  W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);draw();
+}
+function fit(){
+  var n=pts.length,sx=0,sy=0,sxy=0,sxx=0;
+  pts.forEach(function(p){sx+=p.x;sy+=p.y;sxy+=p.x*p.y;sxx+=p.x*p.x;});
+  var m=(n*sxy-sx*sy)/(n*sxx-sx*sx||1);return{m:m,b:(sy-m*sx)/n};
+}
+function draw(){
+  if(!W)return;
+  var cs=getComputedStyle(document.documentElement),line=cs.getPropertyValue('--line'),
+      data=cs.getPropertyValue('--data'),acc=cs.getPropertyValue('--accent'),mut=cs.getPropertyValue('--muted');
+  ctx.clearRect(0,0,W,H);
+  var pad=26,w=W-pad*2,h=H-pad*2;
+  ctx.strokeStyle=line;ctx.lineWidth=1;
+  for(var i=0;i<=4;i++){var gy=pad+h*i/4,gx=pad+w*i/4;
+    ctx.beginPath();ctx.moveTo(pad,gy);ctx.lineTo(pad+w,gy);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(gx,pad);ctx.lineTo(gx,pad+h);ctx.stroke();}
+  var f=fit();
+  ctx.strokeStyle=acc;ctx.lineWidth=3;ctx.lineCap='round';
+  ctx.beginPath();ctx.moveTo(pad,pad+h*(1-f.b));ctx.lineTo(pad+w,pad+h*(1-(f.m+f.b)));ctx.stroke();
+  pts.forEach(function(p){ctx.fillStyle=data;ctx.beginPath();ctx.arc(pad+p.x*w,pad+h*(1-p.y),5,0,6.283);ctx.fill();});
+  ctx.fillStyle=mut;ctx.font='12px Figtree,Arial,sans-serif';
+  ctx.fillText('y = '+f.m.toFixed(2)+'x + '+f.b.toFixed(2)+'   ·   n = '+pts.length,pad,16);
+}
+cv.addEventListener('click',function(ev){
+  var r=cv.getBoundingClientRect(),pad=26;
+  var x=(ev.clientX-r.left-pad)/(W-pad*2),y=1-(ev.clientY-r.top-pad)/(H-pad*2);
+  if(x<0||x>1||y<0||y>1)return;
+  pts.push({x:x,y:y});draw();
+});
+document.getElementById('reset').addEventListener('click',function(){seed();draw();});
+window.addEventListener('resize',size);
+seed();size();
+</script>
+</body>
+</html>
