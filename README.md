@@ -11,4 +11,4 @@ Personal portfolio website of Vishal Jakhar, B.Tech CSE (AI & Data Science), Jai
 Open `index.html` and replace the example text, numbers, links and email with your own.
 
 ## Live site
-https://vishaljakhar144.github.io/
+https://vishaljakhar144.github.io/Vishal_Jakhar_Portfolio
